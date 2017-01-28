@@ -1,5 +1,0 @@
-# ninja log v5
-2	2264	0	CMakeFiles/native-lib.dir/src/main/cpp/src/AndroidPlatform.cpp.o	223c8edd4db40dbd
-706	2635	0	CMakeFiles/native-lib.dir/src/main/cpp/src/NativeRenderer.cpp.o	c28e193498a942b3
-1483	3772	0	CMakeFiles/native-lib.dir/src/main/cpp/jni-calls.cpp.o	efccb50a16f2cac1
-3774	5163	0	../../../../build/intermediates/cmake/debug/obj/mips/libnative-lib.so	90d3cca55cdfdebe
