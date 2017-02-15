@@ -5,9 +5,15 @@
 #ifndef OPENGLWITHNDK_NATIVERENDERER_H
 #define OPENGLWITHNDK_NATIVERENDERER_H
 
+#include <GLES2/gl2.h>
 
 class NativeRenderer {
+public:
+    NativeRenderer();
 
+    void Init();
+
+    void Draw();
 };
 
 
