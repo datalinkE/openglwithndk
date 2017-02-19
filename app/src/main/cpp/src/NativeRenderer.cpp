@@ -1,9 +1,25 @@
 //
 // Created by datalink on 28.01.2017.
 //
-#include <sstream>
 #include "NativeRenderer.h"
 #include "macro.h"
+#include "GLHelpers.h"
+#include <string.h>
+
+const char vshader[] = ""
+"uniform mat4 u_MVPMatrix;"
+"attribute vec4 a_Position;\n"
+"void main(){\n"
+"    gl_Position = u_MVPMatrix * a_Position;\n"
+"}";
+
+const char tshader[] = ""
+"precision mediump float;\n"
+"uniform vec4 u_Color;\n"
+"void main()\n"
+"{\n"
+"    gl_FragColor = u_Color;\n"
+"}";
 
 NativeRenderer::NativeRenderer() {
     DCALL();
@@ -11,11 +27,12 @@ NativeRenderer::NativeRenderer() {
 
 void NativeRenderer::Init() {
     DCALL();
-    std::ostringstream versionString;
-    versionString << glGetString(GL_VERSION) << ", " << glGetString(GL_SHADING_LANGUAGE_VERSION);
-    auto glesVersionInfo = versionString.str();
-    DEBUG(glesVersionInfo.c_str());
+    DSTR(glGetString(GL_VERSION));
+    DSTR(glGetString(GL_SHADING_LANGUAGE_VERSION));
     glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+
+    auto prog = GLHelpers::BuildProgram(vshader, strlen(vshader), tshader, strlen(tshader));
+    GLHelpers::ValidateProgram(prog);
 }
 
 void NativeRenderer::Draw() {

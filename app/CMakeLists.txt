@@ -14,7 +14,9 @@ add_library( native-lib
              # file are automatically included.
              src/main/cpp/jni-calls.cpp
              src/main/cpp/src/AndroidPlatform.cpp
-             src/main/cpp/src/NativeRenderer.cpp )
+             src/main/cpp/src/NativeRenderer.cpp
+             src/main/cpp/src/GLHelpersBuffer.cpp
+             src/main/cpp/src/GLHelpersShader.cpp )
 
 find_library( log-lib
               log )
